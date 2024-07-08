@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de Dados</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            text-align: center;
+        }
+
+        .dados {
+            display: inline-block;
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Simulador de Dados</h1>
+
+    <div class="dados" id="d6"></div>
+    <div class="dados" id="d8"></div>
+    <div class="dados" id="d20"></div>
+
+    <button class="button" id="btnGirarDados">Girar Dados</button>
+
+    <script>
+        const btnGirarDados = document.getElementById('btnGirarDados');
+        const d6 = document.getElementById('d6');
+        const d8 = document.getElementById('d8');
+        const d20 = document.getElementById('d20');
+
+        function gerarNumeroAleatorio(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        function rolarDados() {
+            d6.textContent = gerarNumeroAleatorio(1, 6);
+            d8.textContent = gerarNumeroAleatorio(1, 8);
+            d20.textContent = gerarNumeroAleatorio(1, 20);
+        }
+
+        btnGirarDados.addEventListener('click', rolarDados);
+    </script>
+</body>
+</html>
